@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>
+    <meta name="baidu-site-verification" content="tPeSO96vti" />
+    <title>vue</title>
+    <script src="/src/libs/jquery.min.js"></script>
+    <script src="/src/libs/bootstrap.min.js"></script>
+    <script>
+      function loading(){
+        var $loading = $('#loading>h1:last-child').find('span')
+        if($loading.length >= 3){
+          $loading.remove();
+        }else{
+          $('#loading>h1:last-child').append('<span>.</span>')
+        }
+      }
+      var t = self.setInterval('loading()',500);
+      function removeLoading(){
+        $('#loading').remove();
+        $('#container').show();
+        window.clearInterval(t);
+      }
+    </script>
+    <style>
+      #container{
+        display: none
+      }
+    </style>
+</head>
+
+<body onload="setTimeout('removeLoading()',1000)">
+  <div id="loading" class="text-center">
+    <h1>Loading</h1>
+  </div>
+  <div id="container">
+    <router-view></router-view>
+  </div>
+</body>
+<script src="/src/libs/vue.min.js"></script>
+<script src="/src/libs/vue-router.min.js"></script>
+<script src="/src/libs/vue-resource.min.js"></script>
+<script src="/dist/main.js"></script>
+</html>
