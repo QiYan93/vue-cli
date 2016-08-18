@@ -4,4 +4,4 @@
  npm install
 
 ##启动
- npm start#vue-cli
+ npm start
